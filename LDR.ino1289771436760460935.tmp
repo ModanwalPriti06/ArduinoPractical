@@ -1,0 +1,25 @@
+const int sensormin=0;
+const int sensormax=600;
+const int sensorReading=0;
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int analogReading=analogRead(0);
+  int range=map(sensorReading,sensormin,sensormax,0,3);
+  switch(range){
+    case 0:
+    Serial.print("Dark");
+    break;
+    case 1:
+    Serial.print("Dim");
+    break;
+    case 2:
+    Serial.print("medium");
+    break;
+    case 3:
+    Serial.print("Bright");
+    break;
+    }
+}
